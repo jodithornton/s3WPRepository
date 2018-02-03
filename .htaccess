@@ -9,7 +9,14 @@
 ########################################################################
 
 # 0. MOD_REWRITE
-
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{QUERY_STRING} !=""
+	RewriteCond %{QUERY_STRING} !^p=.*
+	RewriteCond %{QUERY_STRING} !^s=.*
+	RewriteCond %{REQUEST_URI} !^/wp-admin.*
+	RewriteRule ^(.*)$ /$1? [R=301,L]
+</IfModule>
 
 # 1. CACHE-CONTROL
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
