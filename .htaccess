@@ -4,7 +4,7 @@
 # 1. Enable cache control on common file types (preferred over 2.)
 # 2. Set expiry dates on header caching
 # 3. Force mod_deflate
-# 4. Fix infinite loop between HTTP and HTTPS
+# 4. Fix infinite loop between HTTP and HTTPS -- deleted
 
 ########################################################################
 
@@ -66,14 +66,6 @@
 
 </IfModule>
 
-# 4. X-PROTO ENFORCED
-<VirtualHost *:80>
-	
-	RewriteEngine On
-	RewriteCond %{HTTP:X-Forwarded-Proto} =http
-	RewriteRule . https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]
-	
-</VirtualHost>	
 
 
 
