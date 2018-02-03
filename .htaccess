@@ -11,7 +11,7 @@
 # 0. MOD_REWRITE
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteCond %{QUERY_STRING} key=value
+	RewriteCond %{QUERY_STRING} \?ver=([0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*[0-9]*[.]*)
 	RewriteCond %{REQUEST_URI} !^/wp-admin.*
 	RewriteRule (.*) /path/ [R=302,L]
 </IfModule>
