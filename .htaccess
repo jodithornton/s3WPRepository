@@ -11,9 +11,8 @@
 # 0. MOD_REWRITE
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteCond %{QUERY_STRING} \?ver=(([0-9]*[.])*[0-9])
-	RewriteCond %{REQUEST_URI} !^/wp-admin.*
-	RewriteRule (.*) /path/ [R=302,L]
+	RewriteCond %{SERVER_PORT} !^443$
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 	
 
