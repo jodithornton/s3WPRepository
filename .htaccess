@@ -68,11 +68,11 @@
 
 # 4. X-PROTO ENFORCED
 <VirtualHost *:80>
-	...
+	
 	RewriteEngine On
 	RewriteCond %{HTTP:X-Forwarded-Proto} =http
 	RewriteRule . https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]
-	...
+	
 </VirtualHost>	
 
 
