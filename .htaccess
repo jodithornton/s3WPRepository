@@ -8,8 +8,11 @@
 ########################################################################
 
 
-0. Mod rewrite plus HTTPS redirect
-
+# 0. Mod rewrite plus HTTPS redirect
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L]
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
