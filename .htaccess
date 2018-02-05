@@ -69,7 +69,12 @@
 
 
 
-
+# 4. SSL end redirect loop
+<VirtualHost *:80>
+	RewriteEngine On
+	RewriteCond %{HTTP:X-Forwarded-Proto} =http
+	RewriteRule . https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]
+</VirtualHost>
 
 
 
